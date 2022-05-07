@@ -24,3 +24,13 @@ alert_job:
             - schedules
         variables:
             - $SCHEDULE_TYPE == "RUN_ALERTS"
+
+table_job:
+      stage: run
+      only:
+        refs:
+            - schedules
+        variables:
+            - $SCHEDULE_TYPE == "RUN_AIRFLOW"
+      script:
+            python airflow.py
