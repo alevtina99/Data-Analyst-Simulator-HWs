@@ -7,8 +7,8 @@ stages:
 report_job:
     stage: run
     script:
-        - python report_feed.py
-        - python report_both_services.py
+        - python reports_alerts/report_feed.py
+        - python reports_alerts/report_both_services.py
     only:
         refs:
             - schedules
@@ -18,7 +18,7 @@ report_job:
 alert_job:
     stage: run
     script:
-        - python alerts.py
+        - python reports_alerts/alerts.py
     only:
         refs:
             - schedules
