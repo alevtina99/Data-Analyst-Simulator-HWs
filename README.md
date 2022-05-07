@@ -14,3 +14,5 @@ This repository contains projects created as part of the Data anaylist simulator
 ### airflow.py
 Script for an ETL-pipeline executed with Airflow. Involves data extraction and transformation into a table with summary statistics of key metrics over users' age, gender and OS.
 
+### gitlab-ci.yml
+Gitlab CI/CD pipeline script for handling reports and alerts
