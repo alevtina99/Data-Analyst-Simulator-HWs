@@ -1,0 +1,26 @@
+image: cr.yandex/crp742p3qacifd2hcon2/practice-da:latest
+
+stages:
+- init
+- run
+
+report_job:
+    stage: run
+    script:
+        - python report_feed.py
+        - python report_both_services.py
+    only:
+        refs:
+            - schedules
+        variables:
+            - $SCHEDULE_TYPE == "RUN_REPORTS"
+
+alert_job:
+    stage: run
+    script:
+        - python alerts.py
+    only:
+        refs:
+            - schedules
+        variables:
+            - $SCHEDULE_TYPE == "RUN_ALERTS"
